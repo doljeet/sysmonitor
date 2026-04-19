@@ -1,6 +1,6 @@
 # sysmonitor
 
-A GUI-based system monitoring tool for Linux, built entirely in Bash. It provides real-time resource usage stats and system info through a clean [Zenity](https://help.gnome.org/users/zenity/stable/) dialog interface — no terminal clutter required.
+A GUI-based system monitoring tool for Linux, built entirely in Bash. It provides real-time resource usage stats and system info through a clean Zenity dialog interface — no terminal clutter required.
 
 ---
 
