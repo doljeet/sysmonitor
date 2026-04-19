@@ -1,0 +1,85 @@
+.TH SYSMONITOR 1 "May 2025" "version 1.1" "User Commands"
+.SH NAME
+sysmonitor \- interactive system monitor and logger with GUI
+.SH SYNOPSIS
+.B sysmonitor.sh
+[\fIOPTION\fR]
+.SH DESCRIPTION
+\fBsysmonitor.sh\fR is an interactive Bash script that displays system information and resource utilization using a graphical interface (Zenity).
+
+It can:
+.RS
+.IP \(bu
+Show CPU, RAM, disk, and GPU usage in real time.
+.IP \(bu
+Save periodic system data (CPU frequency, RAM, disk usage) to log files.
+.IP \(bu
+Allow users to configure refresh rates and durations.
+.IP \(bu
+Be configured via an external config.cfg file.
+.RE
+.SH OPTIONS
+.TP
+.B \-h
+Display this help message and exit.
+.TP
+.B \-v
+Display the script version and exit.
+.SH CONFIGURATION
+The script reads configuration values from a file named \fIconfig.cfg\fR located in the same directory. Example config:
+.nf
+REFRESH_RATE=2
+LOG_DIR=./logs
+VERSION=1.1
+.fi
+
+These values set:
+.RS
+.IP \(bu
+REFRESH_RATE: Default refresh rate in seconds.
+.IP \(bu
+LOG_DIR: Directory where log files will be saved.
+.IP \(bu
+VERSION: Script version shown with \-v.
+.RE
+.SH FEATURES
+.B Basic System Information
+.br
+Displays architecture, CPU details, frequencies, RAM info, and system kernel.
+
+.B System Utilization
+.br
+Shows:
+.RS
+.IP \(bu
+CPU usage over time.
+.IP \(bu
+RAM usage over time.
+.IP \(bu
+GPU VRAM usage (if available).
+.IP \(bu
+Disk space usage (all mounted filesystems).
+.RE
+
+.B Save log to file
+.br
+Asks user for interval and duration, then saves system data periodically to a log file named:
+.nf
+system_report_YYYYMMDD_HHMM.txt
+.fi
+inside the configured \fILOG_DIR\fR.
+.SH FILES
+.TP
+.I config.cfg
+Configuration file for the script.
+.TP
+.I ram_usage.sh, cpu_usage.sh, gpu_usage.sh, save_log.sh
+Source modules loaded by the main script.
+.SH AUTHOR
+Written by Bartłomiej Chociaj.
+.SH REPORTING BUGS
+Please report bugs to: s203683@student.pg.edu.pl
+.SH COPYRIGHT
+Copyright © 2025 Bartłomiej Chociaj.
+.SH SEE ALSO
+top(1), free(1), df(1), lscpu(1)
